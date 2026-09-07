@@ -21,13 +21,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
-/* Mobile Frame Container */
+/* 1. Rigid Mobile Frame: Dimensions locked strictly */
 .mobile-app-container {
   width: 100%;
   max-width: 420px;
-  height: 92vh;
+  height: 850px;
+  max-height: 92vh;
   background-color: var(--white);
   border-radius: 28px;
   overflow: hidden;
@@ -37,8 +40,10 @@ body {
   position: relative;
 }
 
+/* Header locked */
 .app-header {
-  padding: 16px 20px 8px;
+  flex-shrink: 0;
+  padding: 16px 20px 12px;
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-border);
 }
@@ -49,7 +54,9 @@ body {
   color: var(--dark);
 }
 
+/* Tabs locked */
 .shop-tabs {
+  flex-shrink: 0;
   display: flex;
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-border);
@@ -74,9 +81,10 @@ body {
   border-bottom: 2px solid var(--primary);
 }
 
-/* Locked Main Viewport */
+/* 2. Content Area: min-height 0 prevents flex blowouts */
 .page-content {
-  flex: 1;
+  flex: 1 1 0;
+  min-height: 0;
   overflow-y: auto;
   background-color: var(--gray-bg);
   padding: 16px;
@@ -84,13 +92,13 @@ body {
   flex-direction: column;
 }
 
-/* Stable Centered Empty Placeholder */
+/* 3. Empty placeholder: fills available viewport without collapsing */
 .empty-page-placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 100%;
   color: var(--gray-text);
   text-align: center;
@@ -106,6 +114,7 @@ body {
   display: flex;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
 }
 
 .product-card:hover {
