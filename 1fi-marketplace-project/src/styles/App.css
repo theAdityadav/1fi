@@ -25,12 +25,14 @@ body {
   overflow: hidden;
 }
 
-/* 1. Rigid Mobile Frame: Dimensions locked strictly */
+/* Mobile Frame Container: Hard Lock on dimensions */
 .mobile-app-container {
-  width: 100%;
-  max-width: 420px;
-  height: 850px;
-  max-height: 92vh;
+  width: 390px;
+  min-width: 390px;
+  max-width: 390px;
+  height: min(88vh, 800px);
+  min-height: min(88vh, 800px);
+  max-height: min(88vh, 800px);
   background-color: var(--white);
   border-radius: 28px;
   overflow: hidden;
@@ -40,10 +42,11 @@ body {
   position: relative;
 }
 
-/* Header locked */
+/* Fixed Header */
 .app-header {
   flex-shrink: 0;
-  padding: 16px 20px 12px;
+  height: 56px;
+  padding: 16px 20px 0;
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-border);
 }
@@ -54,18 +57,20 @@ body {
   color: var(--dark);
 }
 
-/* Tabs locked */
+/* Fixed Tab Bar */
 .shop-tabs {
   flex-shrink: 0;
+  height: 48px;
   display: flex;
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-border);
-  padding: 0 12px;
+  padding: 0 8px;
 }
 
 .tab-button {
-  flex: 1;
-  padding: 12px 6px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 12px 2px;
   font-size: 13px;
   font-weight: 600;
   color: var(--gray-text);
@@ -73,7 +78,10 @@ body {
   border: none;
   border-bottom: 2px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .tab-button.active {
@@ -81,10 +89,11 @@ body {
   border-bottom: 2px solid var(--primary);
 }
 
-/* 2. Content Area: min-height 0 prevents flex blowouts */
+/* Content Area strictly bound to remaining height */
 .page-content {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   min-height: 0;
+  height: calc(100% - 104px);
   overflow-y: auto;
   background-color: var(--gray-bg);
   padding: 16px;
@@ -92,17 +101,17 @@ body {
   flex-direction: column;
 }
 
-/* 3. Empty placeholder: fills available viewport without collapsing */
+/* Empty placeholder strictly centered */
 .empty-page-placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
-  min-height: 100%;
+  height: 100%;
+  width: 100%;
   color: var(--gray-text);
   text-align: center;
-  padding: 24px;
+  margin: auto 0;
 }
 
 .product-card {
@@ -113,8 +122,8 @@ body {
   margin-bottom: 14px;
   display: flex;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
   flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .product-card:hover {
@@ -126,6 +135,7 @@ body {
   width: 110px;
   height: 110px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .product-info {
@@ -134,6 +144,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
 }
 
 .product-brand {
@@ -147,6 +158,9 @@ body {
   font-weight: 600;
   color: var(--dark);
   margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-pricing {
@@ -210,6 +224,7 @@ body {
   display: flex;
   gap: 8px;
   margin: 10px 0 16px;
+  flex-wrap: wrap;
 }
 
 .variant-chip {
