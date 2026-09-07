@@ -1,0 +1,54 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "description": "Super Retina XDR display, Dynamic Island, 48MP main camera with 2x Telephoto, and USB-C.",
+    "basePrice": 69900,
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80",
+    "variants": [
+      { "id": "v1-128", "name": "128 GB", "price": 69900 },
+      { "id": "v1-256", "name": "256 GB", "price": 79900 },
+      { "id": "v1-512", "name": "512 GB", "price": 99900 }
+    ],
+    "emiPlans": [
+      { "id": "emi-3m", "tenureMonths": 3, "monthlyAmount": 23300, "interestRate": 0, "tag": "No Cost EMI" },
+      { "id": "emi-6m", "tenureMonths": 6, "monthlyAmount": 11650, "interestRate": 0, "tag": "No Cost EMI" },
+      { "id": "emi-9m", "tenureMonths": 9, "monthlyAmount": 8250, "interestRate": 12, "tag": "Low Interest" },
+      { "id": "emi-12m", "tenureMonths": 12, "monthlyAmount": 6400, "interestRate": 14, "tag": "Flexible Tenure" }
+    ]
+  },
+  {
+    "id": "prod-2",
+    "name": "Samsung Galaxy S24",
+    "brand": "Samsung",
+    "description": "Galaxy AI features, bright 6.2 Dynamic AMOLED 2X, enhanced battery and Armor Aluminum.",
+    "basePrice": 74999,
+    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&auto=format&fit=crop&q=80",
+    "variants": [
+      { "id": "v2-128", "name": "128 GB", "price": 74999 },
+      { "id": "v2-256", "name": "256 GB", "price": 79999 }
+    ],
+    "emiPlans": [
+      { "id": "emi-3m-s", "tenureMonths": 3, "monthlyAmount": 24999, "interestRate": 0, "tag": "No Cost EMI" },
+      { "id": "emi-6m-s", "tenureMonths": 6, "monthlyAmount": 12500, "interestRate": 0, "tag": "No Cost EMI" },
+      { "id": "emi-12m-s", "tenureMonths": 12, "monthlyAmount": 6875, "interestRate": 13.5, "tag": "Popular" }
+    ]
+  },
+  {
+    "id": "prod-3",
+    "name": "Sony WH-1000XM5",
+    "brand": "Sony",
+    "description": "Industry-leading noise cancellation, crystal-clear hands-free calling, up to 30-hour battery life.",
+    "basePrice": 29990,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+    "variants": [
+      { "id": "v3-black", "name": "Black", "price": 29990 },
+      { "id": "v3-silver", "name": "Silver", "price": 29990 }
+    ],
+    "emiPlans": [
+      { "id": "emi-3m-sony", "tenureMonths": 3, "monthlyAmount": 9996, "interestRate": 0, "tag": "No Cost EMI" },
+      { "id": "emi-6m-sony", "tenureMonths": 6, "monthlyAmount": 5250, "interestRate": 10, "tag": "Standard EMI" }
+    ]
+  }
+]
