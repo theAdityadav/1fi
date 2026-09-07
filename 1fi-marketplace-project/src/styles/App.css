@@ -15,23 +15,25 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Base reset: Centers preview on laptop/desktop */
 body {
   background-color: #0f172a;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
-  padding: 20px 0;
-  overflow: hidden;
+  padding: 0;
 }
 
-/* 1. STRICT FIXED DIMENSIONS: Exactly 390px by 800px on desktop */
+/* 1. CONTAINER: Centered mockup on desktop/laptop */
 .mobile-app-container {
   width: 390px;
-  inline-size: 390px;
-  height: 800px;
-  block-size: 800px;
+  min-width: 390px;
+  max-width: 390px;
+  height: 820px;
+  max-height: 90dvh;
   background-color: var(--white);
   border-radius: 36px;
   overflow: hidden;
@@ -42,23 +44,28 @@ body {
   flex-shrink: 0;
 }
 
-/* True mobile view: expands only when the screen itself is smaller than 390px */
-@media (max-width: 420px) {
+/* 2. REAL MOBILE SCREENS: Completely fills any phone edge-to-edge without cutting off */
+@media (max-width: 600px) {
   body {
     background-color: var(--white);
-    padding: 0;
+    display: block;
+    height: 100dvh;
+    overflow: hidden;
   }
+
   .mobile-app-container {
-    width: 100vw;
-    inline-size: 100vw;
-    height: 100vh;
-    block-size: 100vh;
-    border-radius: 0;
-    box-shadow: none;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
 }
 
-/* 2. HEADER: Fixed height, never collapses */
+/* 3. HEADER */
 .app-header {
   flex-shrink: 0;
   height: 56px;
@@ -73,7 +80,7 @@ body {
   color: var(--dark);
 }
 
-/* 3. TABS: Fixed equal third-width buttons */
+/* 4. TABS: Strict 3-column grid stops tabs from stretching or jumping */
 .shop-tabs {
   flex-shrink: 0;
   height: 48px;
@@ -96,6 +103,8 @@ body {
   cursor: pointer;
   white-space: nowrap;
   padding: 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tab-button.active {
@@ -103,14 +112,13 @@ body {
   border-bottom: 2px solid var(--primary);
 }
 
-/* 4. CONTENT VIEWPORT: Hide scrollbar track completely so width is 100% identical on all tabs */
+/* 5. VIEWPORT CONTENT: Scrollbar hidden so width remains identical on empty vs list tabs */
 .page-content {
   flex: 1 1 auto;
   min-height: 0;
-  height: calc(100% - 104px);
-  overflow-y: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   background-color: var(--gray-bg);
   padding: 16px;
   display: flex;
@@ -118,10 +126,10 @@ body {
 }
 
 .page-content::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari, Opera */
+  display: none;
 }
 
-/* 5. EMPTY PLACEHOLDER: Locks in center without shifting anything */
+/* 6. EMPTY STATE PLACEHOLDER */
 .empty-page-placeholder {
   display: flex;
   flex-direction: column;
@@ -134,7 +142,7 @@ body {
   margin: auto 0;
 }
 
-/* 6. PRODUCT CARDS & MODAL */
+/* 7. PRODUCT CARDS */
 .product-card {
   background: var(--white);
   border-radius: 14px;
@@ -205,6 +213,7 @@ body {
   margin-top: 4px;
 }
 
+/* 8. BOTTOM DRAWER / MODAL */
 .modal-overlay {
   position: absolute;
   inset: 0;
@@ -346,7 +355,7 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* In-App Confirmation Sheet */
+/* 9. IN-APP CONFIRMATION */
 .success-modal-view {
   display: flex;
   flex-direction: column;
