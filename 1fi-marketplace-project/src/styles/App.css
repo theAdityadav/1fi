@@ -345,3 +345,62 @@ body {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* In-App Confirmation Sheet */
+.success-modal-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 4px 14px;
+}
+
+.success-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.success-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.success-subtitle {
+  font-size: 12px;
+  color: var(--gray-text);
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.success-details-card {
+  width: 100%;
+  background-color: var(--gray-bg);
+  border: 1px solid var(--gray-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.success-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--gray-text);
+}
+
+.success-row strong {
+  color: var(--dark);
+}
